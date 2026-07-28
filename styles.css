@@ -638,7 +638,88 @@ body {
     .detail-card {
         padding: 25px 15px;
     }
-    .rsvp-card {
+    .blessings-card {
         padding: 30px 20px;
+    }
+}
+
+/* Blessings Section Styling */
+.blessings-section {
+    max-width: 500px;
+    margin: 0 auto 60px auto;
+}
+
+.blessings-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid rgba(212, 175, 55, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.blessings-card h2 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #4A050D;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.blessings-subtitle {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.blessing-heart-icon {
+    font-size: 50px;
+    color: #7E121D;
+    margin-bottom: 15px;
+    animation: heartBeat 1.5s infinite;
+}
+
+.blessing-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #FF8C00, #7E121D);
+    color: white;
+}
+
+.blessings-success {
+    padding: 20px 0;
+    animation: scaleIn 0.5s ease;
+}
+
+.success-wish-icon {
+    font-size: 50px;
+    color: #FFA500;
+    margin-bottom: 15px;
+}
+
+/* Floaty click hearts */
+.click-heart {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    color: #7E121D;
+    animation: floatUp 1.2s ease-out forwards;
+    z-index: 10000;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -150%) scale(1.2) rotate(15deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -250%) scale(1) rotate(-15deg);
+        opacity: 0;
     }
 }

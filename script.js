@@ -120,4 +120,65 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
     animate();
+
+    // 4. FLOATING SPARKLING CLICK HEARTS
+    document.addEventListener('click', (e) => {
+        // Prevent floating hearts when clicking inputs, buttons, or links
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON' || e.target.closest('a')) {
+            return;
+        }
+        const heart = document.createElement('div');
+        heart.className = 'click-heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = `${e.clientX}px`;
+        heart.style.top = `${e.clientY}px`;
+        document.body.appendChild(heart);
+        setTimeout(() => {
+            heart.remove();
+        }, 1200);
+    });
+
+    // 5. SEND BLESSINGS FORM SUBMIT ACTION (Redirects to WhatsApp)
+    const blessingsForm = document.getElementById('blessings-form');
+    const blessingsSuccess = document.getElementById('blessings-success');
+    
+    if (blessingsForm) {
+        blessingsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const blesserName = document.getElementById('blesser-name').value.trim();
+            const blessingMsg = document.getElementById('blessing-message').value.trim();
+            
+            // Show Success UI
+            blessingsForm.classList.add('hidden');
+            blessingsSuccess.classList.remove('hidden');
+            
+            // Trigger explosion of hearts!
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'click-heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * window.innerWidth}px`;
+                    heart.style.top = `${window.innerHeight - 30}px`;
+                    document.body.appendChild(heart);
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1200);
+                }, i * 100);
+            }
+            
+            // Target recipient number: +91 99437 19312
+            const phone = "919943719312";
+            const text = encodeURIComponent(
+                `Congratulations on your new home! 🏡✨\n\n` +
+                `*My Blessings:* "${blessingMsg}"\n\n` +
+                `*With love & respect,*\n${blesserName}`
+            );
+            
+            // Redirect to WhatsApp web/app after 2 seconds
+            setTimeout(() => {
+                window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+            }, 2000);
+        });
+    }
 });

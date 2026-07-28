@@ -131,6 +131,34 @@
                 <i class="fas fa-directions"></i> Get Directions on Google Maps
             </a>
         </div>
+        <!-- Blessings & Wishes Section -->
+        <section class="blessings-section">
+            <div class="blessings-card">
+                <i class="fas fa-heart blessing-heart-icon"></i>
+                <h2>Send Your Blessings</h2>
+                <p class="blessings-subtitle">Leave a warm wish for our new home and send it to us on WhatsApp!</p>
+
+                <form id="blessings-form">
+                    <div class="form-group">
+                        <label for="blesser-name">Your Full Name</label>
+                        <input type="text" id="blesser-name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="blessing-message">Your Wish / Blessing Message</label>
+                        <textarea id="blessing-message" rows="3" required placeholder="e.g. Wishing you peace, love, and prosperity in your beautiful new home!"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary blessing-btn">
+                        <i class="fas fa-heart"></i> Send Blessings
+                    </button>
+                </form>
+
+                <div id="blessings-success" class="blessings-success hidden">
+                    <i class="fas fa-envelope-open-text success-wish-icon"></i>
+                    <h3>Blessings Sent!</h3>
+                    <p>Thank you for your love and warm wishes. Opening WhatsApp to share with the family...</p>
+                </div>
+            </div>
+        </section>
 
         <div class="spacer" style="height: 40px;"></div>
 
