@@ -339,9 +339,15 @@ body {
 /* Glassmorphic Grid Cards */
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 25px;
     margin-bottom: 50px;
+}
+
+@media (min-width: 600px) {
+    .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .detail-card {
