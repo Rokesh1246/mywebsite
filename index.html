@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Warming Invitation | Griha Pravesham</title>
+    <!-- Premium Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background Music Element -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Flower Petal Falling Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Music Control Float Button -->
+    <button id="music-toggle" class="music-btn hidden">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- INTRO/DOOR SCREEN -->
+    <div id="door-screen" class="door-container">
+        <div class="door left-door">
+            <div class="door-inner"></div>
+        </div>
+        <div class="door right-door">
+            <div class="door-inner"></div>
+        </div>
+
+        <!-- Traditional Latch & Welcoming Label -->
+        <div class="welcome-box">
+            <div class="festive-decor">
+                <i class="fas fa-om traditional-icon"></i>
+            </div>
+            <h1 class="welcome-title">Griha Pravesham</h1>
+            <p class="welcome-subtitle">House Warming Invitation</p>
+            <div class="traditional-latch" id="open-btn">
+                <span>Tap to Open Door</span>
+                <div class="ring-animation"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INVITATION CONTENT -->
+    <div id="main-content" class="main-container hidden">
+
+        <!-- Marigold Garland Top Border Decor -->
+        <div class="marigold-garland">
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+        </div>
+
+        <header class="header">
+            <div class="sub-heading">With the Blessings of the Almighty,</div>
+            <h2 class="main-heading">HOUSEWARMING</h2>
+        </header>
+
+        <!-- Main Banner Image of House -->
+        <div class="house-image-container">
+            <img src="housewarming_entrance.png" alt="Our New Home" class="house-image">
+            <div class="image-overlay"></div>
+        </div>
+
+        <!-- Invitation Message -->
+        <section class="invitation-text">
+            <p class="traditional-text">"Your gracious presence will make our celebration complete."</p>
+            <p class="message-body">
+                We joyfully invite you to celebrate the Housewarming Ceremony of our new home.
+                Your presence and blessings will make this occasion truly memorable. We look forward to celebrating this
+                joyous occasion with you and your family.
+            </p>
+        </section>
+
+        <!-- Glassmorphic Details Card Grid -->
+        <section class="details-grid">
+            <div class="detail-card">
+                <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3> Date</h3>
+                <p class="card-highlight">Friday, September 17, 2026</p>
+                <p class="card-desc">All Are Welcome</p>
+            </div>
+
+            <div class="detail-card">
+                <div class="card-icon"><i class="fas fa-clock"></i></div>
+                <h3>Time</h3>
+                <p class="card-highlight">4:30 AM – 6:30 AM</p>
+                <p class="card-desc">Housewarming Pooja Muhurtham</p>
+            </div>
+
+            <div class="detail-card">
+                <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>Venue</h3>
+                <p class="card-highlight">Nallanna Puram</p>
+                <p class="card-desc">Pudukkudi, Thanjavur – 613402</p>
+            </div>
+        </section>
+
+        <!-- Action Button for Maps -->
+        <div class="action-container">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=10.7413791,78.8929893" target="_blank"
+                class="btn btn-primary">
+                <i class="fas fa-directions"></i> Get Directions on Google Maps
+            </a>
+        </div>
+
+        <div class="spacer" style="height: 40px;"></div>
+
+        <!-- Host Footer -->
+        <footer class="footer">
+            <p class="footer-note">With Warm Welcomes from</p>
+            <h3 class="host-names">Our Family</h3>
+            <p class="footer-contacts">Contact: +91 99437 19312 | +91 99444 55213</p>
+        </footer>
+    </div>
+
+
+
+    <!-- Script Import -->
+    <script src="script.js"></script>
+</body>
+
+</html>
