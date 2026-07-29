@@ -768,3 +768,74 @@ body {
         opacity: 0;
     }
 }
+
+/* House Story Section */
+.house-story-section {
+    max-width: 550px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+.story-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 25px;
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.story-quote-icon {
+    font-size: 24px;
+    color: #D4AF37;
+    margin-bottom: 12px;
+}
+
+.story-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #4A050D;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.story-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #444444;
+    margin: 6px 0;
+    line-height: 1.6;
+}
+
+/* Footer Wish styling */
+.footer-extra {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 25px;
+    padding-top: 20px;
+}
+
+.footer-wish {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #FFFDD0;
+    margin: 0 0 10px 0;
+}
+
+.footer-see-you {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 18px;
+    color: #D4AF37;
+    margin: 8px 0 15px 0;
+    letter-spacing: 1px;
+}
+
+.footer-credit {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
