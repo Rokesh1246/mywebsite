@@ -856,3 +856,135 @@ body {
     margin-top: 25px;
     letter-spacing: 0.5px;
 }
+
+/* Personalized Guest Greeting styles */
+.personalized-greeting {
+    margin-bottom: 20px;
+    animation: scaleIn 0.8s ease;
+}
+
+.dear-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #FFFDD0;
+    margin-right: 5px;
+}
+
+.guest-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 24px;
+    color: #D4AF37;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    display: inline-block;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+    padding-bottom: 2px;
+}
+
+.main-personalized-greeting {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #4A050D;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.main-personalized-greeting span {
+    font-family: 'Cinzel Decorative', serif;
+    font-style: normal;
+    color: #AA7C11;
+    font-weight: 700;
+}
+
+/* Secret Admin Panel styles */
+.admin-panel {
+    max-width: 500px;
+    margin: 40px auto 60px auto;
+    padding: 0 15px;
+    animation: slideUp 0.5s ease-out;
+}
+
+.admin-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px 25px;
+    border: 2px dashed #D4AF37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.admin-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #4A050D;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.admin-intro {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.admin-input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.admin-input-group input {
+    flex: 1;
+    max-width: 250px;
+    padding: 12px 15px;
+    border: 1.5px solid #cccccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.admin-input-group input:focus {
+    border-color: #D4AF37;
+}
+
+.admin-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    background: linear-gradient(135deg, #7E121D, #AA7C11);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.admin-btn:active {
+    transform: scale(0.95);
+}
+
+.admin-status {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

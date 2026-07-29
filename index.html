@@ -56,6 +56,11 @@
                 <line x1="45" y1="36" x2="55" y2="36" stroke="#D4AF37" stroke-width="2" />
                 <line x1="46" y1="38" x2="54" y2="38" stroke="#FFA500" stroke-width="1.5" />
             </svg>
+            <!-- Personalized Guest Greeting -->
+            <div id="personalized-greeting" class="personalized-greeting hidden">
+                <span class="dear-label">Dear</span>
+                <span id="guest-name-welcome" class="guest-name"></span>
+            </div>
             <h1 class="welcome-title">Griha Pravesham</h1>
             <p class="welcome-subtitle">House Warming Invitation</p>
             <div class="traditional-latch" id="open-btn">
@@ -106,6 +111,10 @@
         <!-- Invitation Message -->
         <section class="invitation-text">
             <p class="traditional-text">"Your gracious presence will make our celebration complete."</p>
+            <!-- Personalized Guest Greeting -->
+            <div id="main-personalized-greeting" class="main-personalized-greeting hidden">
+                Dear <span id="guest-name-main"></span>,
+            </div>
             <p class="message-body">
                 Govindharaj & Family warmly invite you to celebrate the Housewarming Ceremony of our new home.
                 Your presence and blessings will make this occasion truly memorable. We look forward to celebrating this
@@ -196,6 +205,21 @@
     </div>
 
 
+
+        <!-- Secret Link Generator Admin Panel -->
+        <div id="admin-panel" class="admin-panel hidden">
+            <div class="admin-card">
+                <h3>Guest Link Generator</h3>
+                <p class="admin-intro">Type guest name to copy their personal invitation link:</p>
+                <div class="admin-input-group">
+                    <input type="text" id="generator-guest-name" placeholder="Enter Guest Name">
+                    <button id="generator-copy-btn" class="btn btn-primary admin-btn">
+                        <i class="fas fa-copy"></i> Copy Link
+                    </button>
+                </div>
+                <p id="admin-status" class="admin-status"></p>
+            </div>
+        </div>
 
     <!-- Script Import -->
     <script src="script.js"></script>

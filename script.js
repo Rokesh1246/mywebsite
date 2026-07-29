@@ -202,4 +202,72 @@ document.addEventListener('DOMContentLoaded', () => {
             explodeHearts(btnX, btnY, 35);
         });
     }
+
+    // 6. PERSONALIZATION QUERY PARAMETER HANDLER
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('name') || urlParams.get('guest');
+    
+    if (guestName) {
+        const welcomeGreeting = document.getElementById('personalized-greeting');
+        const welcomeNameSpan = document.getElementById('guest-name-welcome');
+        const mainGreeting = document.getElementById('main-personalized-greeting');
+        const mainNameSpan = document.getElementById('guest-name-main');
+        
+        if (welcomeGreeting && welcomeNameSpan) {
+            welcomeNameSpan.textContent = guestName;
+            welcomeGreeting.classList.remove('hidden');
+        }
+        if (mainGreeting && mainNameSpan) {
+            mainNameSpan.textContent = guestName;
+            mainGreeting.classList.remove('hidden');
+        }
+    }
+
+    // 7. SECRET GUEST LINK GENERATOR ADMIN PANEL
+    const madeWithLove = document.querySelector('.made-with-love');
+    const adminPanel = document.getElementById('admin-panel');
+    let clickCount = 0;
+    
+    if (madeWithLove && adminPanel) {
+        madeWithLove.style.cursor = 'pointer';
+        madeWithLove.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount >= 5) {
+                adminPanel.classList.remove('hidden');
+                adminPanel.scrollIntoView({ behavior: 'smooth' });
+                clickCount = 0; // reset
+            }
+        });
+    }
+
+    // Generator logic
+    const generatorInput = document.getElementById('generator-guest-name');
+    const generatorCopyBtn = document.getElementById('generator-copy-btn');
+    const adminStatus = document.getElementById('admin-status');
+    
+    if (generatorCopyBtn && generatorInput) {
+        generatorCopyBtn.addEventListener('click', () => {
+            const nameVal = generatorInput.value.trim();
+            if (!nameVal) {
+                adminStatus.textContent = "Please enter a guest name first!";
+                adminStatus.style.color = "red";
+                return;
+            }
+            
+            // Get base site URL (strip existing query parameters)
+            const baseUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            const personalUrl = `${baseUrl}?name=${encodeURIComponent(nameVal)}`;
+            
+            // Copy link to clipboard
+            navigator.clipboard.writeText(personalUrl).then(() => {
+                adminStatus.textContent = `Copied personalized link for ${nameVal}! Paste it on WhatsApp.`;
+                adminStatus.style.color = "#AA7C11";
+                generatorInput.value = "";
+            }).catch(err => {
+                // Fallback copy info
+                adminStatus.textContent = `Manual URL: ${personalUrl}`;
+                adminStatus.style.color = "#333333";
+            });
+        });
+    }
 });
