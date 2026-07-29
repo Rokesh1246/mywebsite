@@ -243,9 +243,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generator logic
     const generatorInput = document.getElementById('generator-guest-name');
     const generatorCopyBtn = document.getElementById('generator-copy-btn');
+    const generatorWhatsappBtn = document.getElementById('generator-whatsapp-btn');
     const adminStatus = document.getElementById('admin-status');
     
+    function getInviteMessage(nameVal) {
+        const baseUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        const personalUrl = `${baseUrl}?name=${encodeURIComponent(nameVal)}`;
+        
+        return `*HOUSEWARMING CEREMONY INVITATION* 🏡✨\n\n` +
+               `Dear *${nameVal}*,\n\n` +
+               `With the blessings of the Almighty, we joyfully invite you and your family to celebrate the Housewarming Ceremony of our new home.\n\n` +
+               `📅 *Date:* Friday, September 17, 2026\n` +
+               `🕟 *Time:* 4:30 AM – 6:30 AM\n` +
+               `📍 *Venue:* Nallanna Puram, Pudukkudi, Thanjavur\n\n` +
+               `Please click the link below to open your personalized digital invitation card, listen to the music, and get maps directions:\n` +
+               `👉 ${personalUrl}\n\n` +
+               `We look forward to your gracious presence and blessings!\n\n` +
+               `Warm welcomes from,\n` +
+               `*Govindharaj & Family*`;
+    }
+    
     if (generatorCopyBtn && generatorInput) {
+        // Copy formatted message to clipboard
         generatorCopyBtn.addEventListener('click', () => {
             const nameVal = generatorInput.value.trim();
             if (!nameVal) {
@@ -254,20 +273,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Get base site URL (strip existing query parameters)
-            const baseUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-            const personalUrl = `${baseUrl}?name=${encodeURIComponent(nameVal)}`;
+            const message = getInviteMessage(nameVal);
             
-            // Copy link to clipboard
-            navigator.clipboard.writeText(personalUrl).then(() => {
-                adminStatus.textContent = `Copied personalized link for ${nameVal}! Paste it on WhatsApp.`;
+            navigator.clipboard.writeText(message).then(() => {
+                adminStatus.textContent = `Copied complete invitation message for ${nameVal}! You can paste it directly on WhatsApp.`;
                 adminStatus.style.color = "#AA7C11";
                 generatorInput.value = "";
             }).catch(err => {
-                // Fallback copy info
-                adminStatus.textContent = `Manual URL: ${personalUrl}`;
-                adminStatus.style.color = "#333333";
+                adminStatus.textContent = "Error copying. Try sharing directly using the WhatsApp button!";
+                adminStatus.style.color = "red";
             });
+        });
+    }
+
+    if (generatorWhatsappBtn && generatorInput) {
+        // Open WhatsApp directly with prefilled message
+        generatorWhatsappBtn.addEventListener('click', () => {
+            const nameVal = generatorInput.value.trim();
+            if (!nameVal) {
+                adminStatus.textContent = "Please enter a guest name first!";
+                adminStatus.style.color = "red";
+                return;
+            }
+            
+            const message = getInviteMessage(nameVal);
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            
+            adminStatus.textContent = `Opening WhatsApp to share with ${nameVal}...`;
+            adminStatus.style.color = "green";
+            
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                generatorInput.value = "";
+                adminStatus.textContent = "";
+            }, 1000);
         });
     }
 });
