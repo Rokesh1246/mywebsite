@@ -169,10 +169,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const likeCountSpan = document.getElementById('like-count');
     const likeLabel = document.querySelector('.like-label');
 
-    // Check if this person already liked
-    const alreadyLiked = localStorage.getItem('housewarming_blessed') === 'yes';
+    // Get guest name from URL to create a unique per-person like key
+    const _urlParams = new URLSearchParams(window.location.search);
+    const _guestRaw = (_urlParams.get('name') || _urlParams.get('guest') || 'general').trim().toLowerCase();
+    const likeKey = 'blessed_' + _guestRaw.replace(/\s+/g, '_');
 
-    // Start count from 0 (stored in localStorage)
+    // Check if THIS specific guest already liked (per their unique link)
+    const alreadyLiked = localStorage.getItem(likeKey) === 'yes';
+
+    // Start count from 0 (shared count stored in localStorage)
     let blessingCount = parseInt(localStorage.getItem('housewarming_likes') || '0');
     if (likeCountSpan) {
         likeCountSpan.textContent = blessingCount;
@@ -195,10 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (likeBtn && !alreadyLiked) {
         likeBtn.addEventListener('click', () => {
-            // Mark as liked — only allow once
-            localStorage.setItem('housewarming_blessed', 'yes');
+            // Mark this specific guest as having liked — unique per person's link
+            localStorage.setItem(likeKey, 'yes');
 
-            // Increment count
+            // Increment shared blessing count
             blessingCount++;
             localStorage.setItem('housewarming_likes', blessingCount.toString());
             if (likeCountSpan) {
