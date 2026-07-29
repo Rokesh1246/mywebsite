@@ -638,65 +638,97 @@ body {
     .detail-card {
         padding: 25px 15px;
     }
-    .blessings-card {
-        padding: 30px 20px;
+    .like-container {
+        padding: 10px;
     }
 }
 
-/* Blessings Section Styling */
-.blessings-section {
-    max-width: 500px;
+/* Like Section Styling */
+.like-section {
+    max-width: 400px;
     margin: 0 auto 60px auto;
 }
 
-.blessings-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    border: 1.5px solid rgba(212, 175, 55, 0.2);
+.like-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+}
+
+.like-action-btn {
     position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7E121D, #FF8C00);
+    border: none;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(126, 18, 29, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+    outline: none;
 }
 
-.blessings-card h2 {
-    font-family: 'Cinzel Decorative', serif;
-    color: #4A050D;
-    margin-bottom: 8px;
-    font-size: 24px;
+.like-action-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(126, 18, 29, 0.5);
 }
 
-.blessings-subtitle {
+.like-action-btn:active {
+    transform: scale(0.92);
+}
+
+.like-action-btn i {
+    animation: heartPulse 2s infinite ease-in-out;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+/* Pulsating outline ring */
+.like-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #FFA500;
+    border-radius: 50%;
+    animation: likeRingSpread 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes likeRingSpread {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+}
+
+.like-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #AA7C11;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.like-count-text {
+    font-family: 'Poppins', sans-serif;
     font-size: 13px;
     color: #666666;
-    margin-bottom: 30px;
 }
 
-.blessing-heart-icon {
-    font-size: 50px;
-    color: #7E121D;
-    margin-bottom: 15px;
-    animation: heartBeat 1.5s infinite;
-}
-
-.blessing-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #FF8C00, #7E121D);
-    color: white;
-}
-
-.blessings-success {
-    padding: 20px 0;
-    animation: scaleIn 0.5s ease;
-}
-
-.success-wish-icon {
-    font-size: 50px;
-    color: #FFA500;
-    margin-bottom: 15px;
+#like-count {
+    font-weight: 700;
+    color: #4A050D;
 }
 
 /* Floaty click hearts */

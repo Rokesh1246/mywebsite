@@ -138,47 +138,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1200);
     });
 
-    // 5. SEND BLESSINGS FORM SUBMIT ACTION (Redirects to WhatsApp)
-    const blessingsForm = document.getElementById('blessings-form');
-    const blessingsSuccess = document.getElementById('blessings-success');
+    // 5. LIKE BUTTON BLESSING COUNTER AND ANIMATION
+    const likeBtn = document.getElementById('like-btn');
+    const likeCountSpan = document.getElementById('like-count');
     
-    if (blessingsForm) {
-        blessingsForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const blesserName = document.getElementById('blesser-name').value.trim();
-            const blessingMsg = document.getElementById('blessing-message').value.trim();
+    // Seed initial count in localStorage or use default
+    let blessingCount = parseInt(localStorage.getItem('housewarming_likes') || '128');
+    if (likeCountSpan) {
+        likeCountSpan.textContent = blessingCount;
+    }
+    
+    if (likeBtn) {
+        likeBtn.addEventListener('click', () => {
+            blessingCount++;
+            localStorage.setItem('housewarming_likes', blessingCount.toString());
+            if (likeCountSpan) {
+                likeCountSpan.textContent = blessingCount;
+            }
             
-            // Show Success UI
-            blessingsForm.classList.add('hidden');
-            blessingsSuccess.classList.remove('hidden');
+            // Visual click feedback
+            likeBtn.style.transform = 'scale(0.85)';
+            setTimeout(() => {
+                likeBtn.style.transform = '';
+            }, 150);
             
-            // Trigger explosion of hearts!
-            for (let i = 0; i < 15; i++) {
+            // Explode floaty hearts from the button center
+            const rect = likeBtn.getBoundingClientRect();
+            const btnX = rect.left + rect.width / 2;
+            const btnY = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'click-heart';
                     heart.innerHTML = '❤️';
-                    heart.style.left = `${Math.random() * window.innerWidth}px`;
-                    heart.style.top = `${window.innerHeight - 30}px`;
+                    const offset = (Math.random() - 0.5) * 30;
+                    heart.style.left = `${btnX + offset}px`;
+                    heart.style.top = `${btnY}px`;
                     document.body.appendChild(heart);
                     setTimeout(() => {
                         heart.remove();
                     }, 1200);
-                }, i * 100);
+                }, i * 80);
             }
-            
-            // Target recipient number: +91 99437 19312
-            const phone = "919943719312";
-            const text = encodeURIComponent(
-                `Congratulations on your new home! 🏡✨\n\n` +
-                `*My Blessings:* "${blessingMsg}"\n\n` +
-                `*With love & respect,*\n${blesserName}`
-            );
-            
-            // Redirect to WhatsApp web/app after 2 seconds
-            setTimeout(() => {
-                window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-            }, 2000);
         });
     }
 });
