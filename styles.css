@@ -873,12 +873,12 @@ body {
 }
 
 .dear-label {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: #FFFDD0;
-    margin-bottom: 5px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    color: #D4AF37;
+    margin-bottom: 2px;
     letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .guest-name {
@@ -903,19 +903,22 @@ body {
 
 .main-personalized-greeting {
     text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: #4A050D;
-    margin-bottom: 15px;
-    font-weight: 600;
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #AA7C11;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .main-personalized-greeting span {
     font-family: 'Cinzel Decorative', serif;
     font-style: normal;
-    color: #AA7C11;
+    color: #4A050D;
     font-weight: 700;
+    font-size: 20px;
+    display: block;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
 }
 
 @keyframes slideUp {
