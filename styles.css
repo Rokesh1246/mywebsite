@@ -145,11 +145,12 @@ body {
     pointer-events: none;
 }
 
-.traditional-icon {
-    font-size: 45px;
-    color: #D4AF37;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+.ganesha-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px auto;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
     animation: pulseIcon 2s infinite ease-in-out;
 }
 
