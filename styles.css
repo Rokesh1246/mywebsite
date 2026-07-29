@@ -988,3 +988,18 @@ body {
         opacity: 1;
     }
 }
+
+/* Clickable Contact Link styles */
+.contact-link {
+    color: #D4AF37;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.4);
+    padding-bottom: 1px;
+}
+
+.contact-link:hover {
+    color: #FFA500;
+    border-bottom-color: #FFA500;
+}
