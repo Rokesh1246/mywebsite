@@ -40,6 +40,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // HELPER: EXPLODE HEARTS PARTICLE EFFECT (For Like Button)
+    function explodeHearts(x, y, count = 25) {
+        for (let i = 0; i < count; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'click-heart';
+            heart.innerHTML = '❤️';
+            
+            // Random angle and wider distance to scatter fully across the screen
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 220 + 60; // Wide splash radius
+            const velocityX = Math.cos(angle) * distance;
+            const velocityY = Math.sin(angle) * distance;
+            
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            heart.style.transform = 'translate(-50%, -50%) scale(0.6)';
+            heart.style.transition = 'transform 1.5s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 1.5s ease-out';
+            
+            document.body.appendChild(heart);
+            
+            // Trigger transition
+            requestAnimationFrame(() => {
+                heart.style.transform = `translate(calc(-50% + ${velocityX}px), calc(-50% + ${velocityY - 180}px)) scale(1.6) rotate(${(Math.random() - 0.5) * 80}deg)`;
+                heart.style.opacity = '0';
+            });
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 1500);
+        }
+    }
+
     // 1. OPEN DOOR CLICK EVENT
     openBtn.addEventListener('click', () => {
         // Add opened class to start animations
@@ -189,12 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 likeBtn.style.transform = '';
             }, 150);
             
-            // Explode flower burst from the button center
+            // Explode a massive shower of hearts scattering across the screen!
             const rect = likeBtn.getBoundingClientRect();
             const btnX = rect.left + rect.width / 2;
             const btnY = rect.top + rect.height / 2;
             
-            explodeFlowers(btnX, btnY, 10);
+            explodeHearts(btnX, btnY, 32);
         });
     }
 });
