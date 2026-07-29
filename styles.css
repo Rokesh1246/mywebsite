@@ -808,3 +808,51 @@ body {
     font-size: 18px;
     margin-top: 12px;
 }
+
+/* Celebrating & See You text styles */
+.celebrate-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #4A050D;
+    margin-bottom: 5px;
+}
+
+.see-you-title {
+    font-family: 'Cinzel Decorative', serif;
+    color: #D4AF37;
+    font-size: 20px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Hand Tap Pointer hint styles */
+.tap-hint {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    color: #FFD700;
+    font-size: 24px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+    animation: pointerPulse 1.2s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes pointerPulse {
+    0%, 100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.15) translate(-4px, -4px);
+        opacity: 0.5;
+    }
+}
+
+.made-with-love {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #999999;
+    margin-top: 25px;
+    letter-spacing: 0.5px;
+}

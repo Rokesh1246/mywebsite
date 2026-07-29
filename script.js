@@ -188,6 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 likeBtn.style.transform = '';
             }, 150);
             
+            // Hide the tap hint indicator
+            const tapHint = likeBtn.querySelector('.tap-hint');
+            if (tapHint) {
+                tapHint.style.display = 'none';
+            }
+            
             // Explode a massive shower of hearts scattering across the screen!
             const rect = likeBtn.getBoundingClientRect();
             const btnX = rect.left + rect.width / 2;
