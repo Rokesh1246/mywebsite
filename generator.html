@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Link Generator | Housewarming Invitation</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;1,500&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f0104 0%, #4a050d 50%, #1f0104 100%);
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .generator-container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            border: 2px solid #D4AF37;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            padding: 35px 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        /* Decorative Marigold Garland Header */
+        .marigold-garland {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 5px 0;
+            background: rgba(212, 175, 55, 0.1);
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+
+        .flower {
+            width: 12px;
+            height: 12px;
+            background: #FF8C00;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .flower:nth-child(even) {
+            background: #FFD700;
+        }
+
+        .flower::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 8px;
+            background: green;
+            bottom: -5px;
+            left: 4px;
+            border-radius: 2px;
+        }
+
+        .g-logo {
+            font-size: 45px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: #4A050D;
+            font-size: 22px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #AA7C11;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4A050D;
+            margin-bottom: 8px;
+            margin-left: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1.5px solid #cccccc;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-copy {
+            background: linear-gradient(135deg, #7E121D, #4A050D);
+            color: white;
+            box-shadow: 0 4px 15px rgba(126, 18, 29, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .status {
+            font-size: 13.5px;
+            font-weight: 500;
+            min-height: 25px;
+            line-height: 1.5;
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+        .footer-sig {
+            font-size: 11px;
+            color: #888888;
+            margin-top: 25px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="generator-container">
+        <!-- Flower Garland border deco -->
+        <div class="marigold-garland">
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+        </div>
+
+        <div class="g-logo">🏡</div>
+        <h2>Guest Link Generator</h2>
+        <p class="subtitle">Housewarming Invitation personalized share tool</p>
+
+        <div class="input-group">
+            <label for="guest-name">Guest / Family Name</label>
+            <input type="text" id="guest-name" placeholder="E.g. Ramesh & Family" autocomplete="off">
+        </div>
+
+        <div class="actions">
+            <button id="btn-copy" class="btn btn-copy">
+                <i class="fas fa-copy"></i> Copy Invite Message
+            </button>
+            <button id="btn-whatsapp" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </button>
+        </div>
+
+        <p id="status-msg" class="status"></p>
+
+        <div class="footer-sig">
+            Govindharaj & Family © 2026
+        </div>
+    </div>
+
+    <script>
+        const guestInput = document.getElementById('guest-name');
+        const copyBtn = document.getElementById('btn-copy');
+        const whatsappBtn = document.getElementById('btn-whatsapp');
+        const statusMsg = document.getElementById('status-msg');
+
+        function getInviteMessage(nameVal) {
+            // Get base URL for the invitation index.html page (same folder/root)
+            const origin = window.location.protocol + '//' + window.location.host;
+            // Get pathname of invitation page (replaces current generator.html filename with empty/index.html)
+            let path = window.location.pathname;
+            if (path.endsWith('generator.html')) {
+                path = path.slice(0, -14); // remove 'generator.html'
+            }
+            const inviteUrl = `${origin}${path}?name=${encodeURIComponent(nameVal)}`;
+
+            return `*HOUSEWARMING CEREMONY INVITATION* 🏡✨\n\n` +
+                   `Dear *${nameVal}*,\n\n` +
+                   `With the blessings of the Almighty, we joyfully invite you and your family to celebrate the Housewarming Ceremony of our new home.\n\n` +
+                   `📅 *Date:* Thursday, September 17, 2026\n` +
+                   `🕟 *Time:* 4:30 AM – 6:30 AM\n` +
+                   `📍 *Venue:* Nallanna Puram, Pudukkudi, Thanjavur\n\n` +
+                   `Please click the link below to open your personalized digital invitation card, listen to the music, and get maps directions:\n` +
+                   `👉 ${inviteUrl}\n\n` +
+                   `We look forward to your gracious presence and blessings!\n\n` +
+                   `Warm welcomes from,\n` +
+                   `*Govindharaj & Family*`;
+        }
+
+        if (copyBtn && guestInput) {
+            copyBtn.addEventListener('click', () => {
+                const name = guestInput.value.trim();
+                if (!name) {
+                    statusMsg.textContent = "Please enter a guest name first!";
+                    statusMsg.style.color = "red";
+                    return;
+                }
+
+                const msg = getInviteMessage(name);
+                navigator.clipboard.writeText(msg).then(() => {
+                    statusMsg.textContent = `Copied complete invitation message for ${name}! You can paste it directly on WhatsApp.`;
+                    statusMsg.style.color = "#7E121D";
+                    guestInput.value = "";
+                }).catch(err => {
+                    statusMsg.textContent = "Error copying. Try sharing directly using the WhatsApp button!";
+                    statusMsg.style.color = "red";
+                });
+            });
+        }
+
+        if (whatsappBtn && guestInput) {
+            whatsappBtn.addEventListener('click', () => {
+                const name = guestInput.value.trim();
+                if (!name) {
+                    statusMsg.textContent = "Please enter a guest name first!";
+                    statusMsg.style.color = "red";
+                    return;
+                }
+
+                const msg = getInviteMessage(name);
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+                
+                statusMsg.textContent = `Opening WhatsApp to share with ${name}...`;
+                statusMsg.style.color = "green";
+                
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                    guestInput.value = "";
+                    statusMsg.textContent = "";
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>
