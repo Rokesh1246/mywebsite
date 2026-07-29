@@ -231,4 +231,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 8. COUNTDOWN TIMER
+    const targetDate = new Date('2026-09-17T04:30:00+05:30').getTime(); // 4:30 AM IST on Sep 17, 2026
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+        
+        const daysSpan = document.getElementById('countdown-days');
+        const hoursSpan = document.getElementById('countdown-hours');
+        const minutesSpan = document.getElementById('countdown-minutes');
+        const secondsSpan = document.getElementById('countdown-seconds');
+        
+        if (difference < 0) {
+            // Event has started/passed
+            if (daysSpan) daysSpan.textContent = '00';
+            if (hoursSpan) hoursSpan.textContent = '00';
+            if (minutesSpan) minutesSpan.textContent = '00';
+            if (secondsSpan) secondsSpan.textContent = '00';
+            clearInterval(countdownInterval);
+            return;
+        }
+        
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        
+        if (daysSpan) daysSpan.textContent = String(days).padStart(2, '0');
+        if (hoursSpan) hoursSpan.textContent = String(hours).padStart(2, '0');
+        if (minutesSpan) minutesSpan.textContent = String(minutes).padStart(2, '0');
+        if (secondsSpan) secondsSpan.textContent = String(seconds).padStart(2, '0');
+    }
+    
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
 });

@@ -946,3 +946,76 @@ body {
     color: #FFA500;
     border-bottom-color: #FFA500;
 }
+
+/* Countdown Timer Section Styling */
+.countdown-section {
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.countdown-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #AA7C11;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.countdown-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 12px 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.time-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #4A050D;
+    display: block;
+}
+
+.time-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #666666;
+    display: block;
+    margin-top: 3px;
+}
+
+/* Add to Calendar Button styles */
+.btn-secondary-calendar {
+    background: linear-gradient(135deg, #AA7C11, #D4AF37);
+    color: white;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    font-size: 14px;
+}
+
+.btn-secondary-calendar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
