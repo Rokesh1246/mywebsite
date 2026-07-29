@@ -769,73 +769,54 @@ body {
     }
 }
 
-/* House Story Section */
+/* Our House Story Section Styling */
 .house-story-section {
-    max-width: 550px;
-    margin: 0 auto 50px auto;
-    padding: 0 20px;
+    max-width: 500px;
+    margin: 40px auto 40px auto;
+    padding: 0 15px;
 }
 
 .story-card {
-    background: #ffffff;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
     padding: 30px 25px;
-    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     position: relative;
+    backdrop-filter: blur(5px);
 }
 
-.story-quote-icon {
+.story-decor-top {
     font-size: 24px;
-    color: #D4AF37;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
-.story-card h3 {
+.story-title {
     font-family: 'Cinzel Decorative', serif;
     color: #4A050D;
-    margin-top: 0;
-    margin-bottom: 15px;
     font-size: 20px;
+    margin-bottom: 12px;
     letter-spacing: 1px;
+}
+
+.story-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    margin: 0 auto 20px auto;
 }
 
 .story-line {
     font-family: 'Playfair Display', serif;
-    font-style: italic;
     font-size: 16px;
-    color: #444444;
-    margin: 6px 0;
+    font-style: italic;
+    color: #333333;
+    margin: 8px 0;
     line-height: 1.6;
 }
 
-/* Footer Wish styling */
-.footer-extra {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    margin-top: 25px;
-    padding-top: 20px;
-}
-
-.footer-wish {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-style: italic;
-    color: #FFFDD0;
-    margin: 0 0 10px 0;
-}
-
-.footer-see-you {
-    font-family: 'Cinzel Decorative', serif;
+.story-decor-bottom {
     font-size: 18px;
-    color: #D4AF37;
-    margin: 8px 0 15px 0;
-    letter-spacing: 1px;
-}
-
-.footer-credit {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
+    margin-top: 12px;
 }
