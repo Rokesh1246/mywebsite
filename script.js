@@ -244,11 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondsSpan = document.getElementById('countdown-seconds');
         
         if (difference < 0) {
-            // Event has started/passed
-            if (daysSpan) daysSpan.textContent = '00';
-            if (hoursSpan) hoursSpan.textContent = '00';
-            if (minutesSpan) minutesSpan.textContent = '00';
-            if (secondsSpan) secondsSpan.textContent = '00';
+            // Event has started/passed, hide countdown section
+            const countdownSection = document.querySelector('.countdown-section');
+            if (countdownSection) {
+                countdownSection.style.display = 'none';
+            }
             clearInterval(countdownInterval);
             return;
         }
