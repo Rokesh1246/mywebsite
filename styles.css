@@ -145,13 +145,25 @@ body {
     pointer-events: none;
 }
 
-.ganesha-icon {
-    width: 75px;
-    height: 75px;
-    margin: 0 auto 15px auto;
-    display: block;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+.ganesha-frame {
+    width: 140px;
+    height: 140px;
+    background: #ffffff;
+    border: 3px solid #D4AF37;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     animation: pulseIcon 2s infinite ease-in-out;
+}
+
+.ganesha-image-icon {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
 }
 
 @keyframes pulseIcon {

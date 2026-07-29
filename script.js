@@ -7,40 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicBtn = document.getElementById('music-toggle');
     const bgMusic = document.getElementById('bg-music');
 
-    // HELPER: EXPLODE FLOWERS PARTICLE EFFECT
-    function explodeFlowers(x, y, count = 12) {
-        const flowers = ['🌸', '🌼', '🏵️', '🌺', '✨'];
-        for (let i = 0; i < count; i++) {
-            const petal = document.createElement('div');
-            petal.className = 'click-heart'; // Keep CSS styling for float Up
-            petal.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-            
-            // Calculate random dispersion angles and drift
-            const angle = Math.random() * Math.PI * 2;
-            const distance = Math.random() * 90 + 30;
-            const velocityX = Math.cos(angle) * distance;
-            const velocityY = Math.sin(angle) * distance;
-            
-            petal.style.left = `${x}px`;
-            petal.style.top = `${y}px`;
-            petal.style.transform = 'translate(-50%, -50%) scale(0.6)';
-            petal.style.transition = 'transform 1.2s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 1.2s ease-out';
-            
-            document.body.appendChild(petal);
-            
-            // Force browser repaint to trigger CSS animation transition
-            requestAnimationFrame(() => {
-                petal.style.transform = `translate(calc(-50% + ${velocityX}px), calc(-50% + ${velocityY - 100}px)) scale(1.3) rotate(${(Math.random() - 0.5) * 60}deg)`;
-                petal.style.opacity = '0';
-            });
-            
-            setTimeout(() => {
-                petal.remove();
-            }, 1200);
-        }
-    }
-
-    // HELPER: EXPLODE HEARTS PARTICLE EFFECT (For Like Button)
+    // HELPER: EXPLODE HEARTS PARTICLE EFFECT
     function explodeHearts(x, y, count = 25) {
         for (let i = 0; i < count; i++) {
             const heart = document.createElement('div');
@@ -87,14 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
             musicBtn.classList.remove('hidden');
         });
 
-        // Hide door screen after transition completes and explode flowers!
+        // Hide door screen after transition completes and explode hearts!
         setTimeout(() => {
             doorScreen.classList.add('hidden');
             mainContent.classList.remove('hidden');
             // Trigger canvas animation resize
             resizeCanvas();
-            // Splendid flower burst from the center of the screen
-            explodeFlowers(window.innerWidth / 2, window.innerHeight / 2, 28);
+            // Splendid heart burst from the center of the screen
+            explodeHearts(window.innerWidth / 2, window.innerHeight / 2, 32);
         }, 1200);
     });
 
@@ -187,14 +154,14 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     animate();
 
-    // 4. FLOATING SPARKLING CLICK FLOWERS
+    // 4. FLOATING SPARKLING CLICK HEARTS
     document.addEventListener('click', (e) => {
         // Prevent floating elements when clicking interactive components
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON' || e.target.closest('a')) {
             return;
         }
-        // Spawn 3 mini-exploding flowers at tap location
-        explodeFlowers(e.clientX, e.clientY, 3);
+        // Spawn 4 mini-exploding hearts at tap location
+        explodeHearts(e.clientX, e.clientY, 4);
     });
 
     // 5. LIKE BUTTON BLESSING COUNTER AND ANIMATION
@@ -226,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnX = rect.left + rect.width / 2;
             const btnY = rect.top + rect.height / 2;
             
-            explodeHearts(btnX, btnY, 32);
+            explodeHearts(btnX, btnY, 35);
         });
     }
 });
