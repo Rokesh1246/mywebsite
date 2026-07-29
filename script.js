@@ -205,9 +205,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. PERSONALIZATION QUERY PARAMETER HANDLER
     const urlParams = new URLSearchParams(window.location.search);
-    const guestName = urlParams.get('name') || urlParams.get('guest');
+    let guestName = urlParams.get('name') || urlParams.get('guest');
     
     if (guestName) {
+        guestName = guestName.trim();
+        // Capitalize first letter of every word (Title Case)
+        guestName = guestName.replace(/\b\w/g, char => char.toUpperCase());
+        // Automatically append " & Family" if the user only entered a name without 'family'
+        if (guestName && !guestName.toLowerCase().includes('family')) {
+            guestName = guestName + ' & Family';
+        }
+
         const welcomeGreeting = document.getElementById('personalized-greeting');
         const welcomeNameSpan = document.getElementById('guest-name-welcome');
         const mainGreeting = document.getElementById('main-personalized-greeting');

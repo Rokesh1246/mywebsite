@@ -238,7 +238,19 @@
         const whatsappBtn = document.getElementById('btn-whatsapp');
         const statusMsg = document.getElementById('status-msg');
 
+        function toTitleCase(str) {
+            return str.replace(/\b\w/g, char => char.toUpperCase());
+        }
+
         function getInviteMessage(nameVal) {
+            let formattedName = nameVal.trim();
+            // Capitalize first letters of each word
+            formattedName = toTitleCase(formattedName);
+            // Automatically append " & Family" if the user only entered a name without 'family'
+            if (formattedName && !formattedName.toLowerCase().includes('family')) {
+                formattedName = formattedName + ' & Family';
+            }
+
             // Get base URL for the invitation index.html page (same folder/root)
             const origin = window.location.protocol + '//' + window.location.host;
             // Get pathname of invitation page (replaces current generator.html filename with empty/index.html)
@@ -246,10 +258,10 @@
             if (path.endsWith('generator.html')) {
                 path = path.slice(0, -14); // remove 'generator.html'
             }
-            const inviteUrl = `${origin}${path}?name=${encodeURIComponent(nameVal)}`;
+            const inviteUrl = `${origin}${path}?name=${encodeURIComponent(formattedName)}`;
 
             return `*HOUSEWARMING CEREMONY INVITATION* 🏡✨\n\n` +
-                   `Dear *${nameVal}*,\n\n` +
+                   `Dear *${formattedName}*,\n\n` +
                    `With the blessings of the Almighty, we joyfully invite you and your family to celebrate the Housewarming Ceremony of our new home.\n\n` +
                    `📅 *Date:* Thursday, September 17, 2026\n` +
                    `🕟 *Time:* 4:30 AM – 6:30 AM\n` +
