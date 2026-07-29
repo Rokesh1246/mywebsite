@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `*HOUSEWARMING CEREMONY INVITATION* 🏡✨\n\n` +
                `Dear *${nameVal}*,\n\n` +
                `With the blessings of the Almighty, we joyfully invite you and your family to celebrate the Housewarming Ceremony of our new home.\n\n` +
-               `📅 *Date:* Friday, September 17, 2026\n` +
+               `📅 *Date:* Thursday, September 17, 2026\n` +
                `🕟 *Time:* 4:30 AM – 6:30 AM\n` +
                `📍 *Venue:* Nallanna Puram, Pudukkudi, Thanjavur\n\n` +
                `Please click the link below to open your personalized digital invitation card, listen to the music, and get maps directions:\n` +
