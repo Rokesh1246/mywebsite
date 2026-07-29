@@ -831,7 +831,7 @@ body {
     position: absolute;
     right: -10px;
     bottom: -10px;
-    color: #FF3B30;
+    color: #1A73E8;
     font-size: 24px;
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
     animation: pointerPulse 1.2s infinite ease-in-out;
