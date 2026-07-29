@@ -167,38 +167,72 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. LIKE BUTTON BLESSING COUNTER AND ANIMATION
     const likeBtn = document.getElementById('like-btn');
     const likeCountSpan = document.getElementById('like-count');
-    
-    // Seed initial count in localStorage or use default
-    let blessingCount = parseInt(localStorage.getItem('housewarming_likes') || '128');
+    const likeLabel = document.querySelector('.like-label');
+
+    // Check if this person already liked
+    const alreadyLiked = localStorage.getItem('housewarming_blessed') === 'yes';
+
+    // Start count from 0 (stored in localStorage)
+    let blessingCount = parseInt(localStorage.getItem('housewarming_likes') || '0');
     if (likeCountSpan) {
         likeCountSpan.textContent = blessingCount;
     }
-    
-    if (likeBtn) {
+
+    // If already liked, show thank you state immediately on load
+    if (alreadyLiked && likeBtn) {
+        likeBtn.disabled = true;
+        likeBtn.style.opacity = '0.6';
+        const tapHint = likeBtn.querySelector('.tap-hint');
+        if (tapHint) tapHint.style.display = 'none';
+        if (likeLabel) {
+            likeLabel.textContent = '🙏 Thank You for Your Blessings!';
+            likeLabel.style.color = '#4A050D';
+            likeLabel.style.fontStyle = 'normal';
+            likeLabel.style.fontFamily = "'Cinzel Decorative', serif";
+            likeLabel.style.fontSize = '13px';
+        }
+    }
+
+    if (likeBtn && !alreadyLiked) {
         likeBtn.addEventListener('click', () => {
+            // Mark as liked — only allow once
+            localStorage.setItem('housewarming_blessed', 'yes');
+
+            // Increment count
             blessingCount++;
             localStorage.setItem('housewarming_likes', blessingCount.toString());
             if (likeCountSpan) {
                 likeCountSpan.textContent = blessingCount;
             }
-            
+
+            // Disable button after first click
+            likeBtn.disabled = true;
+            likeBtn.style.opacity = '0.6';
+
             // Visual click bounce
             likeBtn.style.transform = 'scale(0.85)';
             setTimeout(() => {
                 likeBtn.style.transform = '';
             }, 150);
-            
+
             // Hide the tap hint indicator
             const tapHint = likeBtn.querySelector('.tap-hint');
-            if (tapHint) {
-                tapHint.style.display = 'none';
+            if (tapHint) tapHint.style.display = 'none';
+
+            // Show Thank You text
+            if (likeLabel) {
+                likeLabel.textContent = '🙏 Thank You for Your Blessings!';
+                likeLabel.style.color = '#4A050D';
+                likeLabel.style.fontStyle = 'normal';
+                likeLabel.style.fontFamily = "'Cinzel Decorative', serif";
+                likeLabel.style.fontSize = '13px';
             }
-            
+
             // Explode a massive shower of hearts scattering across the screen!
             const rect = likeBtn.getBoundingClientRect();
             const btnX = rect.left + rect.width / 2;
             const btnY = rect.top + rect.height / 2;
-            
+
             explodeHearts(btnX, btnY, 35);
         });
     }
